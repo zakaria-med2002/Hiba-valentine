@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Hiba 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;height:100vh;
+display:flex;justify-content:center;align-items:center;
+background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+font-family:'Pacifico',cursive;color:white;
+overflow:hidden;text-align:center}
+.card{
+background:rgba(255,255,255,.2);
+padding:40px;border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.3);
+max-width:420px}
+button{
+font-size:1.1em;padding:12px 28px;
+border:none;border-radius:30px;
+margin:10px;cursor:pointer}
+#yes{background:#ff2f55;color:white}
+#no{background:white;color:#ff2f55;position:absolute}
+.heart{position:absolute;font-size:20px;animation:fall 5s linear infinite}
+@keyframes fall{0%{top:-10vh}100%{top:110vh}}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<div class="card" id="card">
+<h1>Hiba 💖</h1>
+<p id="text"></p>
+<button id="yes">Oui 💘</button>
+<button id="no">Non 🙈</button>
+</div>
+
+<script>
+const msg="Depuis que tu es dans ma vie, tout est plus beau… Est-ce que tu veux être ma Valentine ?";
+let i=0;
+function type(){
+if(i<msg.length){
+document.getElementById("text").innerHTML+=msg[i++];
+setTimeout(type,50)}}
+type();
+
+document.getElementById("no").onmouseover=()=>{
+no.style.left=Math.random()*80+"vw";
+no.style.top=Math.random()*80+"vh";}
+
+document.getElementById("yes").onclick=()=>{
+card.innerHTML=`
+<h1>Je t’aime 💖</h1>
+<img src="nous.jpg" style="width:100%;border-radius:20px;margin:20px 0">
+<p>Merci d’être ma Valentine… et bien plus encore 🥹</p>
+<p>— Zakaria 💘</p>`}
+
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="heart";h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000)},300);
+</script>
+
+</body>
+</html>
